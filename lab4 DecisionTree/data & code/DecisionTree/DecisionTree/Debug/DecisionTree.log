@@ -1,0 +1,30 @@
+﻿  DecisionTree.cpp
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(161): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(177): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(195): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(211): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(225): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(321): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(374): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(440): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(458): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(471): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(519): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(526): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(580): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(587): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(681): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(694): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(668): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(674): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(738): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(754): warning C4018: “<”: 有符号/无符号不匹配
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(479): warning C4715: “Test_label_Cal”: 不是所有的控件路径都返回值
+d:\学习\大三\人工智能\实验\lab4_decision_tree\code\decisiontree\decisiontree\decisiontree.cpp(151): warning C4715: “choose_property”: 不是所有的控件路径都返回值
+  DecisionTree.vcxproj -> D:\学习\大三\人工智能\实验\lab4_Decision_Tree\code\DecisionTree\Debug\DecisionTree.exe
