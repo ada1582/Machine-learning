@@ -11,7 +11,7 @@
 #include <stdlib.h>
 using namespace std;
 
-//ÈıÔªË³Ğò±í±íÏî 
+//ä¸‰å…ƒé¡ºåºè¡¨è¡¨é¡¹ 
 struct Triple{
 	int row;
 	int col;
@@ -28,7 +28,7 @@ struct Triple{
 	}
 };
 
-//ÈıÔªË³Ğò±í±íÏîµÄ±È½Ïº¯Êı 
+//ä¸‰å…ƒé¡ºåºè¡¨è¡¨é¡¹çš„æ¯”è¾ƒå‡½æ•° 
 bool cmp(Triple & a, Triple & b){
 	if(a.row < b.row) return true;
 	else if(a.row == b.row){
@@ -37,24 +37,24 @@ bool cmp(Triple & a, Triple & b){
 	}else return false;
 }
 
-//ÈıÔªË³Ğò±í 
+//ä¸‰å…ƒé¡ºåºè¡¨ 
 struct TMatrix{
 	int rn;
 	int cn;
 	int tn;
-	vector<Triple> data;//¼ÇÂ¼ÈıÔªË³Ğò±í±íÏî 
-	vector<int> row_word_cnt;//¼ÇÂ¼È«²¿Êı¾İ¼¯Ã¿ĞĞµÄµ¥´Ê×ÜÊı 
-	vector<int> col_word_cnt;//¼ÇÂ¼Ã¿¸öµ¥´ÊËù³öÏÖµÄÎÄÕÂ×ÜÊı 
+	vector<Triple> data;//è®°å½•ä¸‰å…ƒé¡ºåºè¡¨è¡¨é¡¹ 
+	vector<int> row_word_cnt;//è®°å½•å…¨éƒ¨æ•°æ®é›†æ¯è¡Œçš„å•è¯æ€»æ•° 
+	vector<int> col_word_cnt;//è®°å½•æ¯ä¸ªå•è¯æ‰€å‡ºç°çš„æ–‡ç« æ€»æ•° 
 	TMatrix(){
 		rn = 0;
 		cn = 0;
 		tn = 0;
 	}
-	//¶ÔÈıÔªË³Ğò±í½øĞĞÅÅĞò 
+	//å¯¹ä¸‰å…ƒé¡ºåºè¡¨è¿›è¡Œæ’åº 
 	void update(){
 		sort(data.begin(), data.end(), cmp);
 	}
-	//Êä³ö One_hot ÈıÔªË³Ğò±í 
+	//è¾“å‡º One_hot ä¸‰å…ƒé¡ºåºè¡¨ 
 	void show_One_hot_table(){
 		ofstream outf; 
 		outf.open("smatrix.txt");	
@@ -64,7 +64,7 @@ struct TMatrix{
 	    }
 		outf.close();
 	}
-	//Êä³ö One_hot ¾ØÕó 
+	//è¾“å‡º One_hot çŸ©é˜µ 
 	void show_One_hot_matrix(){
 		ofstream outf; 
 		outf.open("onehot.txt");
@@ -72,7 +72,7 @@ struct TMatrix{
 		for(int i = 0; i < rn; i++){
 			for(int j = 0; j < cn; j++){
 				if(i == data[cnt].row && j == data[cnt].col){
-					//ÓÉÓÚ One_hot ¾ØÕóÎª 0-1 ¾ØÕóËùÒÔÖ±½ÓÊä³ö1 
+					//ç”±äº One_hot çŸ©é˜µä¸º 0-1 çŸ©é˜µæ‰€ä»¥ç›´æ¥è¾“å‡º1 
 					outf << "1 ";
 					cnt++;
 				}else{
@@ -83,7 +83,7 @@ struct TMatrix{
 		}
 		outf.close();
 	}
-	//Êä³ö TF ¾ØÕó 
+	//è¾“å‡º TF çŸ©é˜µ 
 	void show_TF_matrix(){
 		ofstream outf; 
 		outf.open("TF.txt");
@@ -91,7 +91,7 @@ struct TMatrix{
 		for(int i = 0; i < rn; i++){
 			for(int j = 0; j < cn; j++){
 				if(i == data[cnt].row && j == data[cnt].col){
-					//¼ÆËãµÄ´ÊÓï³öÏÖµÄ´ÎÊı¹éÒ»»¯ºóµÄÆµÂÊ
+					//è®¡ç®—çš„è¯è¯­å‡ºç°çš„æ¬¡æ•°å½’ä¸€åŒ–åçš„é¢‘ç‡
 					double TF_tem = double(data[cnt].value) / double(row_word_cnt[i]);
 					outf << TF_tem << " ";
 					cnt++;
@@ -103,7 +103,7 @@ struct TMatrix{
 		}
 		outf.close();
 	}
-	//Êä³ö TFIDE ¾ØÕó 
+	//è¾“å‡º TFIDE çŸ©é˜µ 
 	void show_TFIDE_matrix(){
 		ofstream outf; 
 		outf.open("TFIDF.txt");
@@ -111,7 +111,7 @@ struct TMatrix{
 		for(int i = 0; i < rn; i++){
 			for(int j = 0; j < cn; j++){
 				if(i == data[cnt].row && j == data[cnt].col){
-					//¼ÆËãÄæÏòÎÄ¼şÆµÂÊÔÙ¼ÆËã TFIDE ¾ØÕó 
+					//è®¡ç®—é€†å‘æ–‡ä»¶é¢‘ç‡å†è®¡ç®— TFIDE çŸ©é˜µ 
 					double TF_tem = double(data[cnt].value) / double(row_word_cnt[i]);
 					double TFIDE_tem = TF_tem * (log(double(rn) / (1.0 + double(col_word_cnt[j]))));
 					outf << TFIDE_tem << " ";
@@ -125,13 +125,13 @@ struct TMatrix{
 		outf.close();
 	}
 };
-//ÈıÔªË³Ğò±íÏà¼Ó¾ØÕó 
+//ä¸‰å…ƒé¡ºåºè¡¨ç›¸åŠ çŸ©é˜µ 
 void AplusB(){ 
 	TMatrix m1, m2;
 	ifstream smatrix_A("A.txt"); 
 	ifstream smatrix_B("B.txt"); 
 	if(smatrix_A && smatrix_B){
-		//¶ÁÈ¡AÈıÔªË³Ğò±íµÄÖµ 
+		//è¯»å–Aä¸‰å…ƒé¡ºåºè¡¨çš„å€¼ 
     	smatrix_A >> m1.rn;
     	smatrix_A >> m1.cn;
     	smatrix_A >> m1.tn;
@@ -144,7 +144,7 @@ void AplusB(){
     		m1.data.push_back(m_node);
     		
 		}
-		//¶ÁÈ¡BÈıÔªË³Ğò±íµÄÖµ 
+		//è¯»å–Bä¸‰å…ƒé¡ºåºè¡¨çš„å€¼ 
 		smatrix_B >> m2.rn;
     	smatrix_B >> m2.cn;
     	smatrix_B >> m2.tn;
@@ -158,30 +158,30 @@ void AplusB(){
     	if(m1.rn == m2.rn && m1.cn == m2.cn){
     		ofstream outf; 
 			outf.open("smatrix_AplusB.txt");
-			//Ğ´ÈëÊä³öÈıÔªË³Ğò±íµÄĞĞÁĞÖµ 
+			//å†™å…¥è¾“å‡ºä¸‰å…ƒé¡ºåºè¡¨çš„è¡Œåˆ—å€¼ 
 			TMatrix m;
 			m.rn = m1.rn;
 			outf << m.rn << endl;
 			m.cn = m2.cn;
 			outf << m.cn << endl;
 			
-			int cnt = 0;//¼ÇÂ¼Êä³öÈıÔªË³Ğò±íµÄÏîÊı 
-			int i = 0;//¼ÇÂ¼AÈıÔªË³Ğò±í±éÀúÏîÏÂ±ê 
-			int j = 0;//¼ÇÂ¼BÈıÔªË³Ğò±í±éÀúÏîÏÂ±ê 
+			int cnt = 0;//è®°å½•è¾“å‡ºä¸‰å…ƒé¡ºåºè¡¨çš„é¡¹æ•° 
+			int i = 0;//è®°å½•Aä¸‰å…ƒé¡ºåºè¡¨éå†é¡¹ä¸‹æ ‡ 
+			int j = 0;//è®°å½•Bä¸‰å…ƒé¡ºåºè¡¨éå†é¡¹ä¸‹æ ‡ 
 			
-			//Í¬Ê±±éÀúÁ½ÈıÔªË³Ğò±í½øĞĞÏà¼Ó²Ù×÷ 
+			//åŒæ—¶éå†ä¸¤ä¸‰å…ƒé¡ºåºè¡¨è¿›è¡Œç›¸åŠ æ“ä½œ 
 			while(i <= m1.tn && j <= m2.tn){
-				if(i == m1.tn && j == m2.tn) break;//±éÀú½áÊøÔòÍË³öÑ­»· 
+				if(i == m1.tn && j == m2.tn) break;//éå†ç»“æŸåˆ™é€€å‡ºå¾ªç¯ 
 				else if(i == m1.tn && j < m2.tn){
 					m.data.push_back(m2.data[j]);
 					j++;
-				}//Ö»Ê£BÈıÔªË³Ğò±íÏîÖ±½Ó·ÅÈë 
+				}//åªå‰©Bä¸‰å…ƒé¡ºåºè¡¨é¡¹ç›´æ¥æ”¾å…¥ 
 				else if(i < m1.tn && j == m2.tn){
 					m.data.push_back(m1.data[i]);
 					i++;
-				}//Ö»Ê£AÈıÔªË³Ğò±íÏîÖ±½Ó·ÅÈë 
+				}//åªå‰©Aä¸‰å…ƒé¡ºåºè¡¨é¡¹ç›´æ¥æ”¾å…¥ 
 				else{
-					//ÅĞ¶ÏÁ½ÈıÔªË³Ğò±íÏîµÄĞĞÁĞºÅË³Ğò·ÅÈë 
+					//åˆ¤æ–­ä¸¤ä¸‰å…ƒé¡ºåºè¡¨é¡¹çš„è¡Œåˆ—å·é¡ºåºæ”¾å…¥ 
 					if(m1.data[i].row < m2.data[j].row){
 						m.data.push_back(m1.data[i]);
 						i++;
@@ -190,7 +190,7 @@ void AplusB(){
 							m.data.push_back(m1.data[i]);
 							i++;
 						}else if(m1.data[i].col == m2.data[j].col){
-							//ÈôÁ½ÈıÔªË³Ğò±íÏîĞĞÁĞºÃÏàÍ¬ÔòÏà¼ÓÖµÔÙ·ÅÈë 
+							//è‹¥ä¸¤ä¸‰å…ƒé¡ºåºè¡¨é¡¹è¡Œåˆ—å¥½ç›¸åŒåˆ™ç›¸åŠ å€¼å†æ”¾å…¥ 
 							Triple m_node(m1.data[i].row, m1.data[i].col, m1.data[i].value + m2.data[j].value);
 							m.data.push_back(m_node);
 							i++;
@@ -207,10 +207,10 @@ void AplusB(){
 				}
 				cnt++;
 			}
-			//Ğ´ÈëÊä³öÈıÔªË³Ğò±íµÄÏîÊı
+			//å†™å…¥è¾“å‡ºä¸‰å…ƒé¡ºåºè¡¨çš„é¡¹æ•°
 			m.tn = cnt;
 			outf << cnt << endl;
-			//Ğ´ÈëÊä³öÈıÔªË³Ğò±í±íÏî	
+			//å†™å…¥è¾“å‡ºä¸‰å…ƒé¡ºåºè¡¨è¡¨é¡¹	
 			for(int k = 0; k < cnt; k++){
 				outf << m.data[k].row << " " << m.data[k].col << " " << m.data[k].value << endl;
 			}
@@ -223,47 +223,47 @@ void AplusB(){
 	}
 }
 int main(){
-	clock_t start_time = clock();//¼ÇÂ¼³ÌĞòÔËĞĞÊ±¼ä 
+	clock_t start_time = clock();//è®°å½•ç¨‹åºè¿è¡Œæ—¶é—´ 
 	ifstream mydata_file("semeval.txt");
-	map<string, int> word_num;//¼ÇÂ¼È«²¿Êı¾İ¼¯Ã¿¸öµ¥´ÊµÄÁĞºÅ 
-	int cnt_col = 0;//¼ÇÂ¼×ÜÁĞÊı 
-	int cnt_row = 0;//¼ÇÂ¼×ÜĞĞÊı 
+	map<string, int> word_num;//è®°å½•å…¨éƒ¨æ•°æ®é›†æ¯ä¸ªå•è¯çš„åˆ—å· 
+	int cnt_col = 0;//è®°å½•æ€»åˆ—æ•° 
+	int cnt_row = 0;//è®°å½•æ€»è¡Œæ•° 
 	TMatrix Data_matrix;
     if(mydata_file){
     	string mydata_str;
 	    while(getline(mydata_file, mydata_str)){
-	    	map<string, int> word_pos;//¼ÇÂ¼µ±Ç°ĞĞÃ¿¸öµ¥´ÊµÄÁĞºÅ 
-	    	Data_matrix.row_word_cnt.push_back(0);//µ±Ç°ĞĞµÄµ¥´ÊÊıÖÃ0 
+	    	map<string, int> word_pos;//è®°å½•å½“å‰è¡Œæ¯ä¸ªå•è¯çš„åˆ—å· 
+	    	Data_matrix.row_word_cnt.push_back(0);//å½“å‰è¡Œçš„å•è¯æ•°ç½®0 
 	    	 
-	    	int pos = mydata_str.rfind('\t');//·´ÏòÑ°ÕÒµÚÒ»¸öTab³öÏÖµÄÎ»ÖÃ 
-			mydata_str = mydata_str.substr(pos + 1, mydata_str.length() - pos - 1);//½ØÈ¡ÓĞĞ§×Ö·û´®
+	    	int pos = mydata_str.rfind('\t');//åå‘å¯»æ‰¾ç¬¬ä¸€ä¸ªTabå‡ºç°çš„ä½ç½® 
+			mydata_str = mydata_str.substr(pos + 1, mydata_str.length() - pos - 1);//æˆªå–æœ‰æ•ˆå­—ç¬¦ä¸²
 			char* mydata_c = (char*)mydata_str.c_str();
-			const char* d = " "; //ÒÔ¿Õ¸ñ×÷½ØÈ¡´Ê 
+			const char* d = " "; //ä»¥ç©ºæ ¼ä½œæˆªå–è¯ 
 	        char* word;  
-	        word = strtok(mydata_c, d); //½ØÈ¡ÓĞĞ§µ¥´Ê 
+	        word = strtok(mydata_c, d); //æˆªå–æœ‰æ•ˆå•è¯ 
 	        while(word){  
 	            string word_tem(word);
-	            Data_matrix.row_word_cnt[Data_matrix.row_word_cnt.size()-1]++;//µ±Ç°ĞĞµÄµ¥´ÊÊı++ 
+	            Data_matrix.row_word_cnt[Data_matrix.row_word_cnt.size()-1]++;//å½“å‰è¡Œçš„å•è¯æ•°++ 
 	            
-	            //ÅĞ¶Ïµ±Ç°µ¥´ÊÊÇ·ñÔÚÈ«²¿Êı¾İ¼¯µÚÒ»´Î³öÏÖ 
+	            //åˆ¤æ–­å½“å‰å•è¯æ˜¯å¦åœ¨å…¨éƒ¨æ•°æ®é›†ç¬¬ä¸€æ¬¡å‡ºç° 
 	            map<string, int>::iterator it;
 	            it = word_num.find(word_tem);
 				if(it == word_num.end()){
-				    word_num[word_tem] = cnt_col;//¼ÇÂ¼ĞÂµ¥´ÊµÄÁĞºÅ 
-				    Data_matrix.col_word_cnt.push_back(0);//µ±Ç°ÁĞµÄµ¥´Ê³öÏÖµÄÎÄÕÂÊıÖÃ0 
+				    word_num[word_tem] = cnt_col;//è®°å½•æ–°å•è¯çš„åˆ—å· 
+				    Data_matrix.col_word_cnt.push_back(0);//å½“å‰åˆ—çš„å•è¯å‡ºç°çš„æ–‡ç« æ•°ç½®0 
 				    Data_matrix.cn++;
 	            	cnt_col++;
 				}
 				
-				//ÅĞ¶Ïµ±Ç°µ¥´ÊÊÇ·ñÔÚµ±Ç°ĞĞÊı¾İ¼¯µÚÒ»´Î³öÏÖ 
+				//åˆ¤æ–­å½“å‰å•è¯æ˜¯å¦åœ¨å½“å‰è¡Œæ•°æ®é›†ç¬¬ä¸€æ¬¡å‡ºç° 
 	            it = word_pos.find(word_tem);
 				if(it == word_pos.end()){
-				    word_pos[word_tem] = Data_matrix.data.size();//¼ÇÂ¼ĞÂµ¥´ÊµÄÁĞºÅ
-				    Data_matrix.data.push_back(Triple(cnt_row,word_num[word_tem], 1));//½«ĞÂµ¥´ÊÎ»ÖÃ·ÅÈëÈıÔªË³Ğò±í 
-				    Data_matrix.col_word_cnt[word_num[word_tem]]++;//µ±Ç°ÁĞµÄµ¥´Ê³öÏÖµÄÎÄÕÂÊı++ 
+				    word_pos[word_tem] = Data_matrix.data.size();//è®°å½•æ–°å•è¯çš„åˆ—å·
+				    Data_matrix.data.push_back(Triple(cnt_row,word_num[word_tem], 1));//å°†æ–°å•è¯ä½ç½®æ”¾å…¥ä¸‰å…ƒé¡ºåºè¡¨ 
+				    Data_matrix.col_word_cnt[word_num[word_tem]]++;//å½“å‰åˆ—çš„å•è¯å‡ºç°çš„æ–‡ç« æ•°++ 
 				    Data_matrix.tn++;
 				}else{
-					Data_matrix.data[word_pos[word_tem]].value++;//ĞÂµ¥´ÊËùÔÚÈıÔªË³Ğò±ívalueÖµ++ 
+					Data_matrix.data[word_pos[word_tem]].value++;//æ–°å•è¯æ‰€åœ¨ä¸‰å…ƒé¡ºåºè¡¨valueå€¼++ 
 				}
 	            word=strtok(NULL, d);
 	        }
@@ -271,21 +271,21 @@ int main(){
 	        cnt_row++;
 	    }
 	    mydata_file.close();
-	    Data_matrix.update();//¶ÔÈıÔªË³Ğò±í½øĞĞÅÅĞò
+	    Data_matrix.update();//å¯¹ä¸‰å…ƒé¡ºåºè¡¨è¿›è¡Œæ’åº
 		
-		//Êä³öÈıÔªË³Ğò±íÓëÈı¸ö¾ØÕó 
+		//è¾“å‡ºä¸‰å…ƒé¡ºåºè¡¨ä¸ä¸‰ä¸ªçŸ©é˜µ 
 	    Data_matrix.show_One_hot_table();
 	    Data_matrix.show_One_hot_matrix();
 	    Data_matrix.show_TF_matrix();
 	    Data_matrix.show_TFIDE_matrix();
 	    
-		//ÈıÔªË³Ğò±íÏà¼Ó 
+		//ä¸‰å…ƒé¡ºåºè¡¨ç›¸åŠ  
 		AplusB();
 	}else{
 		cout << "open fail" << endl;
 	}
-	clock_t finish_time=clock();//¼ÇÂ¼³ÌĞòÔËĞĞÊ±¼ä 
+	clock_t finish_time=clock();//è®°å½•ç¨‹åºè¿è¡Œæ—¶é—´ 
 	double totaltime=double(finish_time-start_time)/CLOCKS_PER_SEC;
-	cout<<"\n´Ë³ÌĞòµÄÔËĞĞÊ±¼äÎª"<<totaltime<<"Ãë£¡"<<endl;
+	cout<<"\næ­¤ç¨‹åºçš„è¿è¡Œæ—¶é—´ä¸º"<<totaltime<<"ç§’ï¼"<<endl;
 	return 0;  
 } 
