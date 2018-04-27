@@ -1,0 +1,11 @@
+﻿  LR.cpp
+d:\学习\大三\人工智能\实验\lab5_lr\15352237_liushunyu\lr\lr\lr.cpp(80): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab5_lr\15352237_liushunyu\lr\lr\lr.cpp(85): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab5_lr\15352237_liushunyu\lr\lr\lr.cpp(114): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+d:\学习\大三\人工智能\实验\lab5_lr\15352237_liushunyu\lr\lr\lr.cpp(265): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+d:\学习\大三\人工智能\实验\lab5_lr\15352237_liushunyu\lr\lr\lr.cpp(270): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 参见“strtok”的声明
+  LR.vcxproj -> D:\学习\大三\人工智能\实验\Lab5_LR\15352237_liushunyu\LR\Debug\LR.exe
